@@ -3,6 +3,6 @@ A collection of my solutions to *Understanding Machine Learning: From Theory to 
 
 ## Progress
 This keeps track of the problems that I'm stuck on (and some remarks for each one) and chapters I've finished. 
-- Chapter 2: ![100%](https://progress-bar.dev/100)
+- Chapter 2: ![100%](https://progress-bar.xyz/100/)
 
 
