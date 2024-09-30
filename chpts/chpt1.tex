@@ -1,0 +1,31 @@
+\begin{problem}{1}
+Show that given a training set $S=\{(xi,f(xi))\}_{i=1}^m \subset (\R^d \times \{0,1\})^m$, there exists a polynomial $p_S$ such that
+$h_S(x)=1$ if and only if $p_S(x) \geq 0$, where $h_S$ is as defined in Equation (2.3).
+\end{problem}
+\begin{solution}
+    Let $p_S(\bm{x}) = -\prod_{i: f(\bm{x_i}) = 1} (\bm{x} - \bm{x_i})^2$. Thus, $p_S$ is a polynomial and $h_S(\bm{x}) \geq 0$ if and only if there exists some $i \in [m]$ such that $\bm{x} = \bm{x_i}$ and $f(\bm{x}_i) = 1$. Therefore, learning the class of all thresholded polynomials using the ERM rule may lead to overfitting.
+\end{solution}
+
+
+\begin{problem}{2}
+Let $\cH$ be a class of binary classifiers over a domain $\cX$. Let $\cD$ be an unknown distribution over $\cX$, and let $f$ be the target hypothesis in $\cH$. Fix some $h\in\cH$. Show that the expected value of $L_S(h)$ over the choice of $S|_x$ equals $L_{(\cD,f)}(h)$.
+\end{problem}
+\begin{solution}
+    By definition, $L_{(\cD, f)}(h) = \P_{x \sim \cD}[h(x) \neq f(x)]$. And, $L_S(h) = \frac{|\{i : h(x_i) \neq f(x_i)\}|}{m}$. Applying the expectation over $S|_x$ to $L_S$, we have that 
+    \begin{align*}
+        \E L_S(h) &= \E\left[\frac{|\{i : h(x_i) \neq f(x_i)\}|}{m}\right] , \\
+        &= \frac{1}{m} \E_{S|_x \sim \cD^m}\left[ \sum_{i=1}^m \ind_{h(x_i) \neq f(x_i)}\right], \\
+        &= \frac{1}{m} \sum_{i=1}^m \E_{x_i \sim \cD} \ind_{h(x_i) \neq f(x_i)}, \tag{by independence} \\
+        &= \frac{1}{m}\sum_{i=1}^m \P_{x \sim \cD}[h(x) \neq f(x)], \tag{by identically distributed} \\
+        &= L_{(\cD, f)}(h).
+    \end{align*}
+\end{solution}
+
+\begin{problem}{3}
+    In this problem, we rely on the realizability assumption to analyze the hypothesis class of the set of all axis-aligned rectangles.
+\end{problem}
+\begin{solution} \
+    \begin{enumerate}[label=(\alph*)]
+        \item
+    \end{enumerate}
+\end{solution}
