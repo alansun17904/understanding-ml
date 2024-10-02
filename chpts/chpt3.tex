@@ -1,0 +1,84 @@
+\begin{problem}{1}
+    Show that the sample complexity $m_\cH(\eps, \delta)$ is monotonically decreasing in each of its parameters.
+\end{problem}
+\begin{solution}
+    By definition, the sample complexity $m_\cH(\eps, \delta)$ is the minimal integer that satisfies the requirements of PAC-learning with accuracy $\eps$ and confidence $\delta$. Fix $\eps, \delta > 0$ and let $\eps', \delta'$ such that $\eps < \eps'$ and $\delta < \delta'$. For any $h \in \{0,1\}^\cX$, if $L_{(\cD, f)}(h) \leq \eps$, then $L_{(\cD, f)}(h) < \eps'$. This implies that the set of all functions that algorithm $A$ given $m(\eps,\delta)$ samples also achieves no more than $\eps'$ misclassification rate. Thus, since the sample complexity is the minimal integer that achieves this misclassification rate, $m_\cH(\eps', \delta) \leq m_\cH(\eps, \delta)$. Fix some $m = m_\cH(\eps, \delta)$, and let $\cS \subset \cX^m$, such that for every $S \in \cS$, $L_{(\cD, f)}(A(S)) < \eps$, then $\P_{S \sim \cD^m}[S \in \cS] \geq 1 - \delta > 1 - \delta'$. Again, by the minimality of the sample complexity, $m_\cH(\eps, \delta) \geq m_\cH(\eps, \delta')$.
+\end{solution}
+
+\begin{problem}{2}
+    Let $\cX$ be a discrete domain and $\cH_\textsc{Singleton} = \{h_z : z \in \cX\} \cup \{h^-\}$ where $h_z(x) = 1$ if $x = z$ and $h_z(x) = 0$ otherwise. Also let $h^-(x) = 0$. In this problem, we show that $\cH_\textsc{Singleton}$ is PAC-learnable.
+\end{problem}
+\begin{solution} \
+    \begin{enumerate}[label=(\alph*)]
+        \item Consider the following ERM algorithm to choose $h \in \cH_{\textrm{Singleton}}$:
+        \begin{center}
+        \fbox{%
+        \begin{varwidth}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+        \begin{algorithmic}[1]
+            \Procedure{DiscreteERM}{$\{(x_i, y_i)\}_{i=1}^n$}:  
+            \For{$i \gets 1 \ldots n$}
+                \If{$y_i = 1$}
+                    \State \Return $h_{x_i}$
+                \EndIf
+            \EndFor
+            \State \Return $h^-$
+            \EndProcedure
+        \end{algorithmic}
+        \end{varwidth}
+        }
+        \end{center}
+        \item Here, we make three observations. Firstly, because of the realizability assumption, if \textsc{DiscreteERM} does not return $h^-$, then it necessarily achieves zero risk. Secondly, suppose that $h_{x^\star}(x)$ is the true hypothesis for $x^\star\in \cX$. Then, for any distribution $\cD$ over $\cX$ and fixed $\eps > 0$, if $\P_{x \sim \cD}[x = x^\star] < \eps$, then $\P_{x\sim \cD}[h^-(x) \neq h_{x^\star}(x)] < \eps$. Also note that is the true hypothesis is $h^-$, then trivially, our ERM procedure will always achieve 0 risk. 
+
+        Combining these observations, we only consider the case where the true hypothesis is not $h^-$. If $h_{x^\star}$ is the true hypothesis, then for fixed $\eps > 0$ we only consider $\cD$ where $\P_{x \sim \cD}[x = x^\star] > \eps$. Moreover, to bound the risk of \textsc{DiscreteERM}, we only need to consider the probability of when $x^\star \notin \{(x_i, y_i)\}_{i=1}^n$. Therefore, since $\P[x^\star \notin \{(x_i, y_i)\}_{i=1}^n] \leq (1-\eps)^n \leq e^{-\eps n}$, $m_\cH(\eps, \delta) \leq \ceil{\frac{\log(1/\delta)}{\eps}}$ and $\cH$ is PAC-learnable.  
+    \end{enumerate}
+\end{solution}
+
+
+\begin{problem}{3}
+    Show that the set of concentric circles $\cH = \{\ind_{\norm{x} \leq r}: r\in \R^+\}$ is PAC-learnable and that its sample complexity is upperbounded by $\ceil{\frac{\log(1/\delta}{\eps}}$.
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+
+\begin{problem}{4}
+
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+
+\begin{problem}{5}
+
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+
+\begin{problem}{6}
+
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+
+\begin{problem}{7}
+
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+
+\begin{problem}{8}
+
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+
+\begin{problem}{9}
+
+\end{problem}
+\begin{solution}
+    
+\end{solution}
